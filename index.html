@@ -134,9 +134,9 @@
   .tile { background: var(--card); border-radius: var(--radius); padding: 40px; }
   .tile p { font-size: 19px; color: #d2d2d7; margin-top: 18px; line-height: 1.5; }
   .tile h3 { font-size: 30px; font-weight: 700; letter-spacing: -.025em; }
-  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .stat { background: var(--card); border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 160px; }
-  .stat b { font-size: 48px; font-weight: 700; letter-spacing: -.04em; line-height: 1;
+  .stat b { font-size: clamp(34px, 4vw, 48px); white-space: nowrap; font-weight: 700; letter-spacing: -.04em; line-height: 1;
     background: linear-gradient(90deg, #2997ff, #bf5af2); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .stat span { font-size: 15px; color: var(--muted); margin-top: 8px; font-weight: 500; }
   .tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
@@ -187,6 +187,7 @@
   @media (max-width: 900px) {
     .work, .work.wide { grid-column: span 6; aspect-ratio: 4/5; min-height: 0; }
     .about-grid, .services { grid-template-columns: 1fr; }
+    .stat b { font-size: clamp(30px, 9vw, 48px); }
     section { padding: 80px 0; }
   }
   @media (max-width: 600px) {
@@ -194,6 +195,7 @@
     .links { gap: 18px; }
     .links a:nth-child(3) { display: none; }
     .tile { padding: 28px; }
+    .stat { padding: 22px; min-height: 140px; }
     .caption { flex-direction: column; gap: 4px; }
   }
   @media (prefers-reduced-motion: reduce) {
